@@ -39,6 +39,7 @@ public class ej14 {
 			viaje+=50;
 		}
 		System.out.println("El viaje le saldria por "+viaje+" Euros");
+		sc.close();
 	}
 
 }

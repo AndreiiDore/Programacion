@@ -13,7 +13,7 @@ public class EJ19 {
 			cuenta+=num;
 		}while(num!=0);
 		System.out.println("La suma es "+cuenta);
-
+		sc.close();
 	}
 
 }

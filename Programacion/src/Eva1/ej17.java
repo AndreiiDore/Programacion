@@ -26,6 +26,7 @@ public class ej17 {
 				cuenta+=intervalo;
 			}
 		}
+		sc.close();
 
 	}
 

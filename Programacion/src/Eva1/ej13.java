@@ -24,6 +24,7 @@ public class ej13 {
 		case 10:System.out.println("Sobresaliente");;break;
 		default:System.out.println("Error. ¿Como vas a sacar un "+nota+"?");;break;
 		}
+		sc.close();
 	}
 
 }

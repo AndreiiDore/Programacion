@@ -19,6 +19,7 @@ public class ej16 {
 			cuenta+=intervalo;
 			
 		}
+		sc.close();
 
 	}
 
