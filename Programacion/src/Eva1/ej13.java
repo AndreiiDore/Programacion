@@ -10,11 +10,12 @@ public class ej13 {
 		System.out.println("Dime que nota has sacado");
 		nota=sc.nextInt();
 		switch(nota) {
-		case 0:System.out.println("Insuficiente");;break;
-		case 1:System.out.println("Insuficiente");;break;
-		case 2:System.out.println("Insuficiente");;break;
-		case 3:System.out.println("Insuficiente");;break;
-		case 4:System.out.println("Insuficiente");;break;
+		case 0:case 1:case 2:case 3:case 4:System.out.println("Insuficiente");;break;
+		//case 1:System.out.println("Insuficiente");;break;
+		//case 2:System.out.println("Insuficiente");;break;
+		//case 3:System.out.println("Insuficiente");;break;
+		//case 4:System.out.println("Insuficiente");;break;
+		//Se puede hacer de la otra forma
 		case 5:System.out.println("Suficiente");;break;
 		case 6:System.out.println("Bien");;break;
 		case 7:System.out.println("Notable");;break;

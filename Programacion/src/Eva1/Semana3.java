@@ -16,11 +16,14 @@ public class Semana3 {
 	 */
 	public static void main(String[] args) {
 		Scanner sc=new Scanner (System.in);
-		int superf=0,superfl=0;
+		int superf=0;
 		System.out.println("Dame la superficie real en metros cuadrados:");
 		superf=sc.nextInt();
-		System.out.println("Dime la superficie estimada:");
-		superfl=sc.nextInt();
+		if(superf>(45*90)&&superf<(120*90)) {
+			
+		}else {
+			System.out.println("No es ni un campo de futlbol");
+		}
 
 	}
 

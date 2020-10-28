@@ -28,9 +28,7 @@ public class ej14 {
 			}
 		}
 		if(comida==1) {
-			if (mayor==1||viajero==1) {
-				
-			}else {
+			if (mayor==0||viajero==0) {
 				viaje+=20;
 			}
 		}
