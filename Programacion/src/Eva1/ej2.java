@@ -17,7 +17,7 @@ public class ej2 {
 				System.out.println("El numero es impar");
 			}
 		}
-
+		sc.close();
 	}
 
 }

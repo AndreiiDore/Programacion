@@ -1,11 +1,10 @@
 package Eva1;
 
-import java.util.Scanner;
+//import java.util.Scanner;
 
 public class hojita_sucia {
 
 	public static void main(String[] args) {
-	;
 		/*
 		int campos=0,metros,campof=0;
 		do {

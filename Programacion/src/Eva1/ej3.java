@@ -22,6 +22,7 @@ public class ej3 {
 		System.out.println("Introduce un numero:");
 		int num=sc.nextInt();
 		System.out.println("El numero que has introducido es el "+num);
+		sc.close();
 	}
-
+	
 }

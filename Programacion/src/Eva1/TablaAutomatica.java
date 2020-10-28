@@ -12,7 +12,7 @@ public class TablaAutomatica {
 		for (int i = 0; i < 11; i++) {
 			System.out.println(num+"*"+i+"="+num*i);
 		}
-
+		sc.close();
 	}
 
 }

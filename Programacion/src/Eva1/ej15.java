@@ -64,7 +64,7 @@ public class ej15 {
 			System.out.println("Quieres volver a introducir una fecha pulsa 1");
 			salir=sc.nextInt();
 		}while(salir==0);
-		
+		sc.close();
 	}
 
 }

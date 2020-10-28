@@ -58,7 +58,7 @@ public class ej12 {
 		if (num1==num2&&num1==num3) {
 			System.out.println("Todos son iguales");
 		}
-
+		sc.close();
 	}
 
 }

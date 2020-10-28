@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class ej12bis {
 
 	public static void main(String[] args) {
-		int num1, num2,num3,aux;
+		int num1, num2,num3;
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Te voy a pedir 3 numeros y te los voy a ordenar de mayor a menor.");
 		System.out.println("Dime el primer numero:");
@@ -19,6 +19,7 @@ public class ej12bis {
 			System.out.println();
 			
 		}
+		sc.close();
 		//aux=num1;
 		//num1=num2;
 		//num3=aux;

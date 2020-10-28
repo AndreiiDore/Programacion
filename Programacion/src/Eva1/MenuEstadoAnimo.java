@@ -77,7 +77,7 @@ public class MenuEstadoAnimo {
 			break;
 			}
 		}while(opcion<2);
-
+		sc.close();
 	}
 
 }
