@@ -2,8 +2,6 @@ package Eva1;
 
 import java.util.Scanner;
 
-import sun.text.resources.cldr.ext.FormatData_en_MT;
-
 public class ej26 {
 /*
  * Escribe un programa que pida un número y luego muestre en pantalla todos los números primos que hay entre 0 y el número solicitado.
