@@ -17,6 +17,7 @@ public class ej12 {
 	public static void main(String[] args) {
 		int num1, num2,num3;
 		System.out.println("Hola");
+		System.out.println("otro cambio");
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Te voy a pedir 3 numeros y te los voy a ordenar de mayor a menor.");
 		System.out.println("Dime el primer numero:");
