@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+</head>
+<body>
+	<table border ="3">
+		<th  colspan="2">
+			<font color ="">Climas de Amercica del sur</font>
+		</th>
+		<tr>
+			<td>
+				<table>
+					<tr>
+						<td>Parte del Norte de america del suer de los paises como</td>
+					</tr>
+					<tr>
+						<td>venezulea</td>
+					</tr>	
+				</table>
+			</td>
+			<td></td>
+		</tr>
+	</table>
+</body>
+</html>

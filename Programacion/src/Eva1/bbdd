@@ -1,0 +1,44 @@
+create database ong;
+use ong;
+create table tipo_donacion(
+	id_donacion int,
+    tipo_donacion varchar(20)
+);
+create table socios (
+	dni varchar(9) primary key,
+    nombre_apellidos varchar (25),
+    cuota int,
+    fecha_de_alta date,
+    donacion varchar (10),
+    direccion varchar (50),
+    ciudad varchar (25),
+    cp int (5),
+    sexo varchar (5),
+    fecha_nacimieto date
+);
+create table campos_operacion (
+	descripcion varchar(50),
+    prioridad int (1)
+);
+create table tipo_accion(
+	id_accion int primary key,
+    accion varchar (20)
+);
+create table acciones(
+	id_accion int primary key,
+	titulo varchar (50),
+    tipo_accion varchar(10),
+    ubicacion varchar (25),
+    presupuesto_min int,
+    presupuesto_max int,
+    fecha_inicio date,
+    fecha_fin date
+);
+-- poner antes de values los valores en el orden que le quiero meter
+insert into ong.tipo_donacion values
+	(1,'puntual'),
+	(2,'anual'),
+    (3,'mensual'),
+    (4,'trimestral');
+insert into ong.socios values
+	('11111111A','José García Ramírez',12,'/2016/01/20',3,null,'Madrid',28001,'H','1990/05/05');
