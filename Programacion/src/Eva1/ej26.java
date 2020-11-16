@@ -11,16 +11,18 @@ public class ej26 {
 		System.out.println("Dime un numero y te dire los numeros primos entre tu numero y el 0:");
 		int num=sc.nextInt();
 		boolean primo=true;
-		int i=num-1;
 		System.out.println("Los numeros primos entre 0 y "+num+" son:");
-		for (int j = 0; j < args.length; j++) {
-			while (num%i!=0||i>=2) {
-				if (num % i == 0) {
-				    primo = false;
+		for (int i = 0; i < num; i++) {
+			for (int div = 2; div == i; div++) {
+				while (num%i!=0) {
+					if (num % i == 0) {
+					    primo = false;
+					}
+			
 				}
-				i--;
 			}
 		}
+	
 		sc.close();
 	}
 
