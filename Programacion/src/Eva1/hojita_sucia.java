@@ -1,10 +1,22 @@
 package Eva1;
 
-//import java.util.Scanner;
+import java.util.Scanner;
 
 public class hojita_sucia {
 
 	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		int array []= {1,2,3};
+		for (int i = 0; i < array.length; i++) {
+			System.out.println(array[i]);
+		}
+		for (int i = 0; i < array.length; i++) {
+			array[i]=0;
+		}
+		for (int i = 0; i < array.length; i++) {
+			System.out.println(array[i]);
+		}
 		/*
 		int campos=0,metros,campof=0;
 		do {
