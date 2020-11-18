@@ -1,14 +1,14 @@
 create database ong;
 use ong;
 create table tipo_donacion(
-	id_donacion int,
+	id_donacion int primary key,
     tipo_donacion varchar(20)
 );
 create table socios (
 	dni varchar(9) primary key,
     nombre_apellidos varchar (25),
     cuota int,
-    fecha_de_alta date,
+    fecha_de_alta  date,
     donacion varchar (10),
     direccion varchar (50),
     ciudad varchar (25),
@@ -17,6 +17,7 @@ create table socios (
     fecha_nacimieto date
 );
 create table campos_operacion (
+	id_operacion int primary key,
 	descripcion varchar(50),
     prioridad int (1)
 );
@@ -24,21 +25,56 @@ create table tipo_accion(
 	id_accion int primary key,
     accion varchar (20)
 );
+drop table ong.acciones;
 create table acciones(
 	id_accion int primary key,
 	titulo varchar (50),
     tipo_accion varchar(10),
+    campo_operacion varchar(50),
     ubicacion varchar (25),
     presupuesto_min int,
     presupuesto_max int,
     fecha_inicio date,
     fecha_fin date
 );
--- poner antes de values los valores en el orden que le quiero meter
 insert into ong.tipo_donacion values
 	(1,'puntual'),
 	(2,'anual'),
     (3,'mensual'),
     (4,'trimestral');
-insert into ong.socios values
-	('11111111A','José García Ramírez',12,'/2016/01/20',3,null,'Madrid',28001,'H','1990/05/05');
+insert into ong.socios (dni,nombre_apellidos, cuota,fecha_de_alta,donacion,ciudad,direccion,cp,sexo,fecha_nacimieto)values
+	('11111111A','José García Ramírez',12,current_date(),3,null,'Madrid',28001,'H','1990/05/05');
+insert into ong.socios (dni,nombre_apellidos, cuota,fecha_de_alta,donacion,ciudad,direccion,cp,sexo,fecha_nacimieto)values
+	('22222222B','Juana Pérez',null,current_date(),1,'C/ Alcalá 200','Madrid',28040,'M',null);
+insert into ong.socios (dni,nombre_apellidos, cuota,fecha_de_alta,donacion,ciudad,direccion,cp,sexo,fecha_nacimieto)values
+	('33333333C','Tomás López Ventura',10,current_date(),3,null,'Las Palmas',35002,'H',null);
+insert into ong.socios (dni,nombre_apellidos, cuota,fecha_de_alta,donacion,ciudad,direccion,cp,sexo,fecha_nacimieto)values
+	('44444444D','Luisa Gómez Salas',15,current_date(),3,'C/ Mayor 5','Teruel',null,null,null);
+insert into ong.socios (dni,nombre_apellidos, cuota,fecha_de_alta,donacion,ciudad,direccion,cp,sexo,fecha_nacimieto)values
+	('1234567E','Maria Velazquez',20,current_date(),3,null,'Madrid',28011,null,null);
+insert into ong.socios (dni,nombre_apellidos, cuota,fecha_de_alta,donacion,ciudad,direccion,cp,sexo,fecha_nacimieto)values
+	('98765432F','Enrique Navarro',null,current_date(),1,null,'Lugo',null,null,null);
+    select *from ong.socios;
+insert into ong.campos_operacion (id_operacion,descripcion,prioridad) values 
+	(1,'Infancia y juventud',1),
+	(2,'Tercera edad',2),
+    (3,'Hospitales',1),
+    (4,'Drogodependencia',5),
+    (5,'Pobreza',3),
+    (6,'Animales',3),
+    (7,'Investigacion',4)
+;
+insert into ong.tipo_accion (id_accion,accion)values
+	(1,'puntual'),
+    (2,'Permanente'),
+    (3,'Campaña')
+;
+select*from ong.acciones;
+drop table ong.acciones;
+insert into ong.acciones (id_accion,titulo,tipo_accion,campo_operacion,ubicacion,presupuesto_min,presupuesto_max,fecha_inicio,fecha_fin) values 
+	(1,'Apoyo escolar', 1,1,'Madrid',5,5000,'2013/9/1',null),
+	(2,'Acompañamiento',1,2,'Toledo',5,2000,'2014/1/3',null),
+    (3,'Recogida de juguetes',3,1,'Madrid',200,4000,'2017/12/1','2017/12/22'),
+    (4,'Carrera popular',1,6,'Madrid',200,1000,'2018/1/1',null),
+    (5,'Concierto benefico',1,3,'Madrid',500,4000,'2017/12/1',null)
+;

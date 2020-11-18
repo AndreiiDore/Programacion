@@ -25,6 +25,7 @@ public class ej63 {
 		System.out.println("El numero mas bajo es: "+min);
 		System.out.println("El numero mas alto es : "+max);
 		System.out.println("La media de los numeros es: "+media );
+		sc.close();
 	}
 
 }
