@@ -1,80 +1,36 @@
-create database ong;
-use ong;
-create table tipo_donacion(
-	id_donacion int primary key,
-    tipo_donacion varchar(20)
-);
-create table socios (
-	dni varchar(9) primary key,
-    nombre_apellidos varchar (25),
-    cuota int,
-    fecha_de_alta  date,
-    donacion varchar (10),
-    direccion varchar (50),
-    ciudad varchar (25),
-    cp int (5),
-    sexo varchar (5),
-    fecha_nacimieto date
-);
-create table campos_operacion (
-	id_operacion int primary key,
-	descripcion varchar(50),
-    prioridad int (1)
-);
-create table tipo_accion(
-	id_accion int primary key,
-    accion varchar (20)
-);
-drop table ong.acciones;
-create table acciones(
-	id_accion int primary key,
-	titulo varchar (50),
-    tipo_accion varchar(10),
-    campo_operacion varchar(50),
-    ubicacion varchar (25),
-    presupuesto_min int,
-    presupuesto_max int,
-    fecha_inicio date,
-    fecha_fin date
-);
-insert into ong.tipo_donacion values
-	(1,'puntual'),
-	(2,'anual'),
-    (3,'mensual'),
-    (4,'trimestral');
-insert into ong.socios (dni,nombre_apellidos, cuota,fecha_de_alta,donacion,ciudad,direccion,cp,sexo,fecha_nacimieto)values
-	('11111111A','JosÈ GarcÌa RamÌrez',12,current_date(),3,null,'Madrid',28001,'H','1990/05/05');
-insert into ong.socios (dni,nombre_apellidos, cuota,fecha_de_alta,donacion,ciudad,direccion,cp,sexo,fecha_nacimieto)values
-	('22222222B','Juana PÈrez',null,current_date(),1,'C/ Alcal· 200','Madrid',28040,'M',null);
-insert into ong.socios (dni,nombre_apellidos, cuota,fecha_de_alta,donacion,ciudad,direccion,cp,sexo,fecha_nacimieto)values
-	('33333333C','Tom·s LÛpez Ventura',10,current_date(),3,null,'Las Palmas',35002,'H',null);
-insert into ong.socios (dni,nombre_apellidos, cuota,fecha_de_alta,donacion,ciudad,direccion,cp,sexo,fecha_nacimieto)values
-	('44444444D','Luisa GÛmez Salas',15,current_date(),3,'C/ Mayor 5','Teruel',null,null,null);
-insert into ong.socios (dni,nombre_apellidos, cuota,fecha_de_alta,donacion,ciudad,direccion,cp,sexo,fecha_nacimieto)values
-	('1234567E','Maria Velazquez',20,current_date(),3,null,'Madrid',28011,null,null);
-insert into ong.socios (dni,nombre_apellidos, cuota,fecha_de_alta,donacion,ciudad,direccion,cp,sexo,fecha_nacimieto)values
-	('98765432F','Enrique Navarro',null,current_date(),1,null,'Lugo',null,null,null);
-    select *from ong.socios;
-insert into ong.campos_operacion (id_operacion,descripcion,prioridad) values 
-	(1,'Infancia y juventud',1),
-	(2,'Tercera edad',2),
-    (3,'Hospitales',1),
-    (4,'Drogodependencia',5),
-    (5,'Pobreza',3),
-    (6,'Animales',3),
-    (7,'Investigacion',4)
-;
-insert into ong.tipo_accion (id_accion,accion)values
-	(1,'puntual'),
-    (2,'Permanente'),
-    (3,'CampaÒa')
-;
-select*from ong.acciones;
-drop table ong.acciones;
-insert into ong.acciones (id_accion,titulo,tipo_accion,campo_operacion,ubicacion,presupuesto_min,presupuesto_max,fecha_inicio,fecha_fin) values 
-	(1,'Apoyo escolar', 1,1,'Madrid',5,5000,'2013/9/1',null),
-	(2,'AcompaÒamiento',1,2,'Toledo',5,2000,'2014/1/3',null),
-    (3,'Recogida de juguetes',3,1,'Madrid',200,4000,'2017/12/1','2017/12/22'),
-    (4,'Carrera popular',1,6,'Madrid',200,1000,'2018/1/1',null),
-    (5,'Concierto benefico',1,3,'Madrid',500,4000,'2017/12/1',null)
-;
+-- 1
+select CodigoOficina,ciudad from jardineria.oficinas;
+-- 2
+select Ciudad,Telefono from jardineria.oficinas where Pais = 'Espa√±a';
+-- 3
+select Nombre,Apellido1,Apellido2,Email from jardineria.empleados where CodigoJefe = 7;
+-- 4
+select Nombre,Apellido1,Apellido2,Email from jardineria.empleados where CodigoJefe is null;
+-- 5
+-- 1.Devuelve un listado con el c√≥digo de oficina y la ciudad donde hay oficinas.
+select CodigoOficina,ciudad from jardineria.oficinas;
+-- 2. Devuelve un listado con la ciudad y el teleÃÅfono de las oficinas de Espa√±a.
+select Ciudad,Telefono from jardineria.oficinas where Pais = 'Espa√±a';
+-- 3. Devuelve un listado con el nombre, apellidos y email de los empleados cuyo jefe tiene un c√≥digo de jefe igual a 7.
+select Nombre,Apellido1,Apellido2,Email from jardineria.empleados where CodigoJefe = 7;
+-- 4. Devuelve el nombre del puesto, nombre, apellidos y email del jefe de la empresa.
+select Nombre,Apellido1,Apellido2,Email,Puesto from jardineria.empleados where CodigoJefe is null;
+-- 5. Devuelve un listado con el nombre, apellidos y puesto de aquellos empleados que no sean representantes de ventas.
+select Nombre,Apellido1,Apellido2,Puesto from jardineria.empleados where Puesto <> 'Representante Ventas';
+-- 6. Devuelve un listado con el nombre de los todos los clientes espanÃÉoles.
+select NombreCliente from jardineria.clientes where Pais = 'Espa√±a' or Pais ='Spain';
+-- 7. Devuelve un listado con los distintos estados por los que puede pasar un pedido.
+select distinct Estado from jardineria.pedidos;
+-- 8. Devuelve un listado con el c√≥digo de pedido, coÃÅdigo de cliente, fecha esperada y fecha de entrega de los pedidos que no han sido entregados a tiempo.
+SELECT * FROM jardineria.pedidos;
+select CodigoPedido,CodigoCliente,FechaEsperada,FechaEntrega from jardineria.pedidos where FechaEntrega>FechaEsperada and Estado='Entregado';
+-- 9. Devuelve un listado de todos los pedidos que fueron rechazados en 2009.
+select * from jardineria.pedidos where Estado = 'Rechazado' and FechaPedido between '2009-01-01' and '2009-12-31';
+-- 10. Devuelve un listado de todos los pedidos que han sido entregados en el mes de enero de cualquier a√±o.
+select * from jardineria.pedidos where FechaEntrega = '___-01-__'
+-- 11. Devuelve un listado con todos los pagos que se realizaron en el a√±o 2008 mediante Paypal. Ordene el resultado de mayor a menor.
+-- 12. Devuelve un listado con todas las formas de pago que aparecen en la tabla pago. Tenga en cuenta que no deben aparecer formas de pago repetidas.
+-- 13. Devuelve un listado con todos los productos que pertenecen a la gama Ornamentales y que tienen m√°s de 100 unidades en stock. El listado deber√° estar ordenado por su precio de venta, mostrando en primer lugar los de mayor precio.
+-- 14. Devuelve un listado con todos los clientes que sean de la ciudad de Madrid y cuyo representante de ventas tenga el c√≥digo de empleado 11 o 30.
+-- Incluye capturas de pantalla de la creaci√≥n de todas estas sentencias.
+

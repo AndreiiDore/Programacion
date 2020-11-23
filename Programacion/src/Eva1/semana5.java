@@ -3,6 +3,7 @@
  */
 package Eva1;
 
+import java.lang.reflect.Array;
 import java.util.Scanner;
 /*Pseudocodigo
 	 * Vamos a crear 2 array distintos.
@@ -105,43 +106,58 @@ public class semana5 {
 		}
 		if (palos_t==3) {
 			System.out.println("TODOS LOS PALOS SON IGUALES!!");
+			int array_ordenado[]=new int [] {14,14,14,14};//inicialzamos el array en unos numeros "grandes" para buscar el mas pequeño
+			//ordenamos los numeros de menor a mayor
+			for (int i = 0; i < array_ordenado.length; i++) {
+				for (int j = 0; j < valores_mano.length; j++) {
+					if (valores_mano[j]<array_ordenado[i]) {
+						array_ordenado[i]=valores_mano[j];
+						valores_mano[j]=Integer.MAX_VALUE;
+					}
+				}
+				
+			}
+			for (int i = 0; i < array_ordenado.length; i++) {
+				System.out.print("|"+array_ordenado[i]+("|"));
+			}
+			boolean orden=false;
+			int contador=0;
+			//Vamos a buscar la carta que nos falta.
+			int cartas_faltan=0; // En caso de que nos falte una carta podremos seguir con el programa si ya llega a dos cartas que nos faltan ya no se podra hace
+			for (int i = 1; i < array_ordenado.length-1; i++) {
+				if (cartas_faltan==0||cartas_faltan==1) {
+					if (array_ordenado[i]!=array_ordenado[i]-1) {
+						cartas_faltan++;
+					}
+				}
+				for (int j = 0; j < array_ordenado.length-1; j++) {
+					if (array_ordenado[j]+1==array_ordenado[i+1]) {
+						orden=true;
+						contador++;
+					}
+				}
+			}
+			System.out.println(cartas_faltan);
+			if (cartas_faltan<2) {
+				System.out.println("Te falta mas de una carta, no se puede hacer... Intentalo mas tarde");
+			}else {
+				if (orden&&contador==3) {
+					if (array_ordenado[array_ordenado.length]!=13) {
+						System.out.println("La carta que te falta es "+(array_ordenado[array_ordenado.length]+1));
+					}else {
+						if (array_ordenado[0]!=1) {
+							System.out.println("La carta que te falta es "+(array_ordenado[0]-1));
+
+						}else {
+							System.out.println("La carta que te falta es "+(array_ordenado[0]-1)+" o por la otra parte de la baraja que seria "+(array_ordenado[array_ordenado.length]+1));
+						}
+					}
+				}
+			}
 		}else {
 			System.out.println("Vaya... No todas tus cartas son del mismo palo, solamente tienes "+(palos_t+1)+" cartas del mismo palo.");
 		}
-		int array_ordenado[]=new int [] {14,14,14,14};//inicialzamos el array en unos numeros "grandes" para buscar el mas pequeño
-		//ordenamos los numeros de menor a mayor
-		for (int i = 0; i < array_ordenado.length; i++) {
-			for (int j = 0; j < valores_mano.length; j++) {
-				if (valores_mano[j]<array_ordenado[i]) {
-					array_ordenado[i]=valores_mano[j];
-					valores_mano[j]=Integer.MAX_VALUE;
-				}
-			}
-			
-		}
-		for (int i = 0; i < array_ordenado.length; i++) {
-			System.out.print("|"+array_ordenado[i]+("|"));
-		}
-		int carta_estrella=0;
-		//Vamos a buscar la carta que nos falta.
-		int cartas_faltan=0; // En caso de que nos falte una carta podremos seguir con el programa si ya llega a dos cartas que nos faltan ya no se podra hace
-		for (int i = 1; i < array_ordenado.length-1; i++) {
-			if (cartas_faltan==0||cartas_faltan==1) {
-				if (array_ordenado[i]!=array_ordenado[i]-1) {
-					cartas_faltan++;
-					carta_estrella=array_ordenado[array_ordenado.length];
-				}
-			}
-		}
-		System.out.println(cartas_faltan);
-		if (cartas_faltan<2) {
-			System.out.println("Te falta mas de una carta, no se puede hacer... Intentalo mas tarde");
-		}else {
-			System.out.println("Solamente te falta "+carta_estrella);
-		}
-		System.out.println();
-		System.out.println("Solamente te falta "+carta_estrella);
-		sc.close();
+		
 	}
 
 }
