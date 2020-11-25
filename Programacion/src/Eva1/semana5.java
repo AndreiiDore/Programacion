@@ -137,21 +137,25 @@ public class semana5 {
 					}
 				}
 			}
+			System.out.println();
 			System.out.println(cartas_faltan);
 			if (cartas_faltan<2) {
 				System.out.println("Te falta mas de una carta, no se puede hacer... Intentalo mas tarde");
 			}else {
-				if (orden&&contador==3) {
-					if (array_ordenado[array_ordenado.length]!=13) {
-						System.out.println("La carta que te falta es "+(array_ordenado[array_ordenado.length]+1));
+				if (orden) {
+					if (array_ordenado[3]==13) {
+						System.out.println("Te faltaria el AS");
 					}else {
-						if (array_ordenado[0]!=1) {
-							System.out.println("La carta que te falta es "+(array_ordenado[0]-1));
-
-						}else {
-							System.out.println("La carta que te falta es "+(array_ordenado[0]-1)+" o por la otra parte de la baraja que seria "+(array_ordenado[array_ordenado.length]+1));
+						System.out.println("Te faltaria "+ (array_ordenado.length+1));
+					}
+				}else {
+					int falta=0;
+					for (int i = 0; i < array_ordenado.length; i++) {
+						if (array_ordenado[i]==array_ordenado[i+1]-1) {
+							falta=i;
 						}
 					}
+					System.out.println("Te faltaria "+array_ordenado[falta-2]);
 				}
 			}
 		}else {
