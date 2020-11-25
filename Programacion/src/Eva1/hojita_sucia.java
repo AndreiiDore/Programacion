@@ -12,6 +12,15 @@ public class hojita_sucia {
 		//int array[][]= new int [10][10];
 		//scanner sc = new scanner(system.in);
 		//int [] domain = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+<<<<<<< HEAD
 		
+=======
+		long cont=0;
+		boolean hola=false;
+		while (hola) {
+			System.out.println(cont);
+			cont++;
+		}
+>>>>>>> branch 'master' of https://github.com/AndreiiDore/Programacion.git
 	}
 }
