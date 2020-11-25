@@ -130,7 +130,7 @@ public class semana5 {
 						cartas_faltan++;
 					}
 				}
-				for (int j = 0; j < array_ordenado.length-1; j++) {
+				for (int j = 0; j < array_ordenado.length-1; j+=2) {
 					if (array_ordenado[j]+1==array_ordenado[i+1]) {
 						orden=true;
 						contador++;
@@ -140,20 +140,22 @@ public class semana5 {
 			System.out.println(cartas_faltan);
 			if (cartas_faltan<2) {
 				System.out.println("Te falta mas de una carta, no se puede hacer... Intentalo mas tarde");
-			}else {
-				if (orden&&contador==3) {
-					if (array_ordenado[array_ordenado.length]!=13) {
-						System.out.println("La carta que te falta es "+(array_ordenado[array_ordenado.length]+1));
-					}else {
-						if (array_ordenado[0]!=1) {
-							System.out.println("La carta que te falta es "+(array_ordenado[0]-1));
-
+			}else{
+				if (array_ordenado[array_ordenado.length]==13) {
+					System.out.println("La carta que te falta es el As");
+				}else {
+					if (array_ordenado[0]!=1) {
+						System.out.println("La carta que te falta es "+(array_ordenado[0]-1));
 						}else {
-							System.out.println("La carta que te falta es "+(array_ordenado[0]-1)+" o por la otra parte de la baraja que seria "+(array_ordenado[array_ordenado.length]+1));
+							if (array_ordenado[array_ordenado.length]==13) {
+								System.out.println("Te faltaria el AS de "+array_palos[0]);
+							}else {
+								System.out.println("Te faltaria "+(array_ordenado[array_ordenado.length]+1));
+							}
 						}
 					}
 				}
-			}
+		
 		}else {
 			System.out.println("Vaya... No todas tus cartas son del mismo palo, solamente tienes "+(palos_t+1)+" cartas del mismo palo.");
 		}
