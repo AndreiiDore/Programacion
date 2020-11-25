@@ -3,7 +3,7 @@
  */
 package Eva1;
 
-import java.lang.reflect.Array;
+
 import java.util.Scanner;
 /*Pseudocodigo
 	 * Vamos a crear 2 array distintos.
