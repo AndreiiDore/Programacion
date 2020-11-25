@@ -161,7 +161,7 @@ public class semana5 {
 		}else {
 			System.out.println("Vaya... No todas tus cartas son del mismo palo, solamente tienes "+(palos_t+1)+" cartas del mismo palo.");
 		}
-		
+		sc.close();
 	}
 
 }
