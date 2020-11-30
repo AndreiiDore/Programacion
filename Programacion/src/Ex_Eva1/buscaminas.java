@@ -3,10 +3,10 @@
  */
 package Ex_Eva1;
 
-import java.util.Scanner;
+import java.util.Scanner; 
 
 /**
- * @author Andrei y Diego
+ * @author Andrei y Diego Lloret
  *
  */
 public class buscaminas {
@@ -16,7 +16,7 @@ public class buscaminas {
 	 */
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("¿De cuanto quieres el tamaño del campo de minas?");
+		System.out.println("Â¿De cuanto quieres el tamaÃ±o del campo de minas?");
 		int tam=sc.nextInt();
 		char tablero [][] = new char[tam+1][tam+1];
 		for (int i = 0; i < tablero.length; i++) {
