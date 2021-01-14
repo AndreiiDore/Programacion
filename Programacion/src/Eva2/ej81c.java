@@ -3,7 +3,7 @@ package Eva2;
 public class ej81c {
 
 	public static void main(String[] args) {
-		int resultado []=intervalo(0,10,2);
+		int resultado []=intervalo(10,100,5);
 		for (int i = 0; i < resultado.length; i++) {
 			System.out.println(resultado[i]);
 		}
