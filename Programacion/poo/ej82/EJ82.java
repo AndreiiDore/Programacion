@@ -2,9 +2,9 @@ package ej82;
 
 import java.util.Scanner;
 
-public class main {
+public class EJ82 {
 
-	public static main(String[] args) {
+	public static void main(String[] args) {
 		Cilindro primercilindro = new Cilindro();
 		Scanner sc = new Scanner(System.in);
 		double altura, radio;
