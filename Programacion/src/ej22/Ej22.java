@@ -26,11 +26,7 @@ public class Ej22 {
 		libro3.setNumEjemplares(sc.nextInt());
 		System.out.println("Dime el numero de Ejemplares Prestados tienes: ");
 		libro3.setNumPrestados(sc.nextInt());
-		System.out.println("Tu Libro se creo correctamente. Asi a quedado:");
-		System.out.println("Titulo de tu libro: "+libro3.getTitulo());
-		System.out.println("Autor de tu Libro: "+libro3.getAutor());
-		System.out.println("Ejemplares de tu Libro: "+libro3.getNumEjemplares());
-		System.out.println("Estos son los Prestamos de tu Libro: "+libro3.getNumPrestados());
+		System.out.println(libro3.toString());
 		sc.close();
 	}
 

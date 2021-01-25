@@ -24,12 +24,18 @@ public class Libro {
 		}
 	}
 	public void devolver() {
+
 		if (numPrestados==0) {
 			System.out.println("Este libro no se a prestado, No se ha hecho la devolucion del mismo");
 		}else {
 			numPrestados--;
 			System.out.println("Devolucion con exito.");
 		}
+	}
+	
+	@Override
+	public String toString() {
+		return "Titulo del Libro: "+getTitulo()+"\nNombre del autor: "+getAutor()+"\nEjemplares del libro: "+getNumEjemplares()+"\nLibros prestados: "+getNumPrestados();
 	}
 	
 	
