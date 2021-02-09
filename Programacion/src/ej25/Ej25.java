@@ -64,13 +64,19 @@ public class Ej25  {
 	 */
 	public static void aniadirCancion(ArrayList <Playlist> playlists){
 		Scanner sc = new Scanner(System.in);
+		int i =0;
 		System.out.println("En que playlist quieres meter una cancion?");
 		for(Playlist p: playlists) {
-			System.out.println(p+". "+p.getNombrePlaylist());
+			i++;
+			System.out.println(i+". "+p.getNombrePlaylist());
 		}
 		int opcionP=sc.nextInt();
 		System.out.println("Que cancion quieres meter en la playlist "+playlists.indexOf(opcionP)+" ?");
 		/*Falta llamr al metodo de cancion para ver que cancion vamos a meter y dnde*/
+		Cancion cancion=new Cancion();
+		
+		playlists.get(opcionP);
+		
 	}
 	public static void adios() {
 		System.out.println("Muchas gracias por usar esta aplicacion.");
