@@ -2,7 +2,7 @@ package ej25;
 
 import java.util.ArrayList;
 
-public class Playlist extends Cancion{
+public class Playlist {
 	/**
 	 * ArrayList llamado playlist para ir metiendo canciones alli;
 	 */
@@ -12,17 +12,17 @@ public class Playlist extends Cancion{
 	 */
 	
 	private String nombrePlaylist;
-	private ArrayList<Cancion> playlist = new ArrayList();
+	private ArrayList<Cancion> playlist;
 	
 	public Playlist() {}
 	public Playlist(String Nombre) {
 		this.nombrePlaylist=Nombre;
 		setNombrePlaylist(Nombre);
 	}
-	public String aniadirCancion  (String mensaje, Cancion cancion) {
-		playlist.add(playlist.size(),cancion);
-		return "Cancion añadida con exito";
+	public void aniadirCancion(ArrayList <Playlist> playlists, int playlistDeseada) {
+		
 	}
+	
 	
 	
 	public ArrayList<Cancion> getPlaylist() {
