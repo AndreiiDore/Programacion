@@ -63,7 +63,7 @@ public class Libro {
 	 * Nombre del Libro
 	 * Autor del Libro
 	 * Numeros de ejemplares que tenemos en "Stock"
-	 * Numeros de libros prestados
+	 * Numeros de libros prestados que hemos dado
 	 */
 	@Override
 	public String toString() {

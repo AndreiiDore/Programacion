@@ -3,12 +3,12 @@ package ej25;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import ej23.Libro;
+
 
 
 
 public class Ej25  {
-	
+
 	public static void main(String[] args) {
 		int opcion;
 		ArrayList <Playlist> playlists = new ArrayList <Playlist>();
@@ -18,16 +18,20 @@ public class Ej25  {
 			switch(opcion) {
 			case 0:adios();break;
 			case 1:crearPlaylist(playlists);;break;
-			case 2:;aniadirCancion(playlists);break;
+			case 2:aniadirCancion(playlists,canciones);break;
+			case 3:verCancion(playlists);;break;
+			case 4:totalPlaylist(playlists);;break;
+			case 5:totalDuracionPlaylist(playlists);;break;
+			case 6:reproducirPlaylist(playlists);;break;
 			}
 		} while (opcion!=0);
-		
-		
-		
+
+
+
 		Cancion cancion1=new Cancion("100","Anuel",3.35);
-		
+
 		System.out.println(cancion1.reproducir());
-	
+
 
 	}
 	/**
@@ -40,17 +44,25 @@ public class Ej25  {
 		System.out.println("Vamos a mostrarte las opciones que tienes para navegar:");
 		System.out.println("1. Crear Playlist");
 		System.out.println("2. Añadir una cancion a una Playlist.");
-		
+		System.out.println("3. Ver una cancion en una Playlist");
+		System.out.println("4. Ver las canciones totales de una Playlist");
+		System.out.println("5. Ver lo que dura una Playlist");
+		System.out.println("6. Reproducir una Playlist");
+		System.out.println("7. Reproducir una cancion de una Playlist");
+		System.out.println("8. Limpiar una Playlist de canciones");
+		System.out.println("9. Eliminar una cancion de una Playlist");
+		System.out.println("10.Buscar por titulo.");
+
 		System.out.println("0. Salir del programa");
 		int opcion=sc.nextInt();
 		return opcion;
-		
+
 	}
 	/**
 	 * Funcion para crear una playlist que quiera el usuario con el nombre que el desee
 	 * @param playlists Arraylist de todas las playList que va a tener el progrma
 	 */
-	public static void crearPlaylist(ArrayList <Playlist> playlists ) {
+	public static void crearPlaylist(ArrayList <Playlist> playlists) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("como quieres llamar a la playlist?");
 		Playlist playlist =new Playlist();
@@ -59,28 +71,112 @@ public class Ej25  {
 		System.out.println(playlist.getNombrePlaylist());
 	}
 	/**
-	 * Vamos a meter una cancion en una playlist
-	 * @param playlists
+	 * 
+	 * @param playlists Array de todas las playlists
+	 * @param canciones Array de todas las canciones
 	 */
-	public static void aniadirCancion(ArrayList <Playlist> playlists){
+	public static void aniadirCancion(ArrayList <Playlist> playlists,ArrayList <Cancion>canciones){
 		Scanner sc = new Scanner(System.in);
-		int i =0;
-		System.out.println("En que playlist quieres meter una cancion?");
-		for(Playlist p: playlists) {
-			i++;
-			System.out.println(i+". "+p.getNombrePlaylist());
+		for (int i = 0; i < playlists.size(); i++) {
+			System.out.println(i+". "+playlists.get(i).getNombrePlaylist());
 		}
 		int opcionP=sc.nextInt();
-		System.out.println("Que cancion quieres meter en la playlist "+playlists.indexOf(opcionP)+" ?");
-		/*Falta llamr al metodo de cancion para ver que cancion vamos a meter y dnde*/
-		Cancion cancion=new Cancion();
-		
-		playlists.get(opcionP);
-		
+		System.out.println("Que cancion quieres meter?");
+		for (int i = 0; i < canciones.size(); i++) {
+			System.out.println(i+". "+canciones.get(i).getTitulo());
+		}
+		int opcionC=sc.nextInt();
+		playlists.get(opcionP).aniadirCancion(canciones.get(opcionC));
+	}
+	/**
+	 * 
+	 * @param playlists Array de todas las playlists
+	 */
+	public static void verCancion(ArrayList <Playlist> playlists) {
+		Scanner sc = new Scanner (System.in);
+		System.out.println("Dime playlist que quieras:");
+		mostrarPlaylists(playlists);
+		int playlistDeseada=sc.nextInt();
+		System.out.println("Que posicion quieres ver?");
+		int posDeseada=sc.nextInt();
+		System.out.println(playlists.get(playlistDeseada).obtenerCancion(posDeseada));
+	}
+	public static void totalPlaylist(ArrayList <Playlist> playlists) {
+		Scanner sc = new Scanner (System.in);
+		System.out.println("De que playlist quieres ver las canciones que tienes?");
+		mostrarPlaylists(playlists);
+		int opcion=sc.nextInt();
+		System.out.println(playlists.get(opcion).totalCanciones());
+	}
+	public static void totalDuracionPlaylist(ArrayList <Playlist> playlists) {
+		Scanner sc = new Scanner (System.in);
+		System.out.println("De que playlist quieres ver la duracion total?");
+		mostrarPlaylists(playlists);
+		int opcion=sc.nextInt();
+		System.out.println("Tu playlist dura "+playlists.get(opcion).totalDuracionPlaylist()+" minutos");
+	}
+	public static void reproducirPlaylist(ArrayList <Playlist> playlists) {
+		Scanner sc = new Scanner (System.in);
+		System.out.println("Que Playlist quieres reproducir?");
+		mostrarPlaylists(playlists);
+		int opcion=sc.nextInt();
+		System.out.println(playlists.get(opcion).reproducirPlaylist());
+	}
+	public static void reproducirCancionPlaylist(ArrayList <Playlist> playlists,ArrayList <Cancion>canciones) {
+		Scanner sc = new Scanner (System.in);
+		System.out.println("Que Playlist quieres reproducir?");
+		mostrarPlaylists(playlists);
+		int opcionP=sc.nextInt();
+		System.out.println("Que cancion quieres que te reproduzaca?");
+		mostrarCancionesPlaylist(canciones);
+		int opcionC=sc.nextInt();
+		System.out.println(playlists.get(opcionP).reproducirCancion(opcionC));
+	}
+	public static void borrarContenidoPlaylist(ArrayList <Playlist> playlists) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Que Playlist quieres dejarla vacia?");
+		mostrarPlaylists(playlists);
+		int opcion=sc.nextInt();
+		playlists.get(opcion).limpiarPlaylist();
+		sc.close();
+	}
+	public static void eliminarCancion(ArrayList <Playlist>playlists,ArrayList <Cancion>canciones) {
+		Scanner sc=new Scanner (System.in);
+		System.out.println("De que Playlist quieres borrar una cancion?");
+		mostrarPlaylists(playlists);
+		int opcionP=sc.nextInt();
+		System.out.println("Que cancion quieres borrar?");
+		mostrarCancionesPlaylist(canciones);
+		int opcionC=sc.nextInt();
+		playlists.get(opcionP).eliminarCancion(opcionC);
+	}
+	public static void buscarPorTitulo(ArrayList <Playlist>playlists) {
+		Scanner sc=new Scanner (System.in);
+		Scanner sc2=new Scanner (System.in);
+		System.out.println("Que cancion quieres buscar?");
+		String titulo=sc.nextLine();
+		System.out.println("En que playlist quieres buscarla?");
+		mostrarPlaylists(playlists);
+		int playl=sc2.nextInt();
+		for (int i = 0; i < playlists.size(); i++) {
+			if (playlists.get(playl).) {
+				
+			}
+		}
+	}
+	public static void mostrarCancionesPlaylist(ArrayList <Cancion>canciones) {
+		for (int i = 0; i < canciones.size(); i++) {
+			System.out.println(i+". "+canciones.get(i).getTitulo());
+		}
+	}
+	public static void mostrarPlaylists(ArrayList <Playlist> playlists) {
+		for (int i = 0; i < playlists.size(); i++) {
+			System.out.println(i+". "+playlists.get(i).getNombrePlaylist());
+		}
 	}
 	public static void adios() {
 		System.out.println("Muchas gracias por usar esta aplicacion.");
 	}
-	
+
 
 }
